@@ -58,10 +58,11 @@ Sin embargo si se desea correr de forma local el proyecto es importante consider
 A continuación se detallan los pasos a seguir:
   1) Clonar el proyecto de forma local desde este repositorio, rama master
   2) Asegurarse que a version de jdk sea la 21, se puede ver con java -version, instalar las dependencias necesarias con maven desde el editor o desde consola con: mvn install
-  3) Revisar los application.properties de desarrollo y produccion, deben estar apuntando a la base en la nube: jdbc:mysql://database-1.cxw4kiemum7t.us-east-2.rds.amazonaws.com:3306/db_hoy_no_circula?useSSL=false
-  4) Ejecutar el archivo "HoyNoCirculaApplication.java" desde ell editor, o desde consola compilarlo con: javac HoyNoCirculaApplication.java y despues: java HoyNoCirculaApplication
-  5) OPCIONAL: Si se desea correr el archivo .jar generado se lo puede ubicar en /extra/hoy-no-circula-0.0.1-SNAPSHOT.jar, usar el comando java -jar hoy-no-circula-0.0.1-SNAPSHOT.jar
-  6) Para probar la api de forma local usar la URL: localhost:8080/${endpoint}
+  3) Revisar la configuracion de dependencias como Lombok, debe estar instalado en el IDE.
+  4) Revisar los application.properties de desarrollo y produccion, deben estar apuntando a la base en la nube: jdbc:mysql://database-1.cxw4kiemum7t.us-east-2.rds.amazonaws.com:3306/db_hoy_no_circula?useSSL=false
+  5) Ejecutar el archivo "HoyNoCirculaApplication.java" desde ell editor, o desde consola compilarlo con: javac HoyNoCirculaApplication.java y despues: java HoyNoCirculaApplication
+  6) OPCIONAL: Si se desea correr el archivo .jar generado se lo puede ubicar en /extra/hoy-no-circula-0.0.1-SNAPSHOT.jar, usar el comando java -jar hoy-no-circula-0.0.1-SNAPSHOT.jar
+  7) Para probar la api de forma local usar la URL: localhost:8080/${endpoint}
 
 Si se desea conectarse a una base de datos Local:
   1) Instalar un servidor de base de datos MySQL

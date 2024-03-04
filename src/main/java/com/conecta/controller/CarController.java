@@ -2,7 +2,6 @@ package com.conecta.controller;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -11,12 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.conecta.model.entity.Car;
 import com.conecta.model.entity.PlateCheckRequest;
 import com.conecta.service.ICarService;
+import com.conecta.utils.CirculationRules;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -56,8 +55,16 @@ public class CarController {
         Map<String, Object> response = new HashMap<>();
         Car existingCar = carService.findByPlate(plateCheckRequest.getPlaca());
         if (existingCar != null) {
+            // check for circulation restricted or allowed
+            CirculationRules circulationRules = new CirculationRules();
+            boolean canCirculate = circulationRules.canCirculate(plateCheckRequest.getPlaca(),
+                    plateCheckRequest.getFecha());
+            if (canCirculate) {
+                response.put("circula", true);
+            } else {
+                response.put("circula", false);
+            }
             response.put("codigo", "200");
-            response.put("circula", true);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } else {
             response.put("codigo", "404");

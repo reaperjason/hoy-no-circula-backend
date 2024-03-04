@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "8b010c32-6107-4d56-8d13-8e1e1261f687",
+		"name": "HoyNoCirculaApis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22885260"
+	},
+	"item": [
+		{
+			"name": "Registro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placa\": \"ADD2016\",\r\n    \"color\": \"Azul\",\r\n    \"modelo\": \"Chevrolet Corsa\",\r\n    \"chasis\": \"45212369745124562\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.19.200.96:8080/api/v1/car",
+					"protocol": "http",
+					"host": [
+						"3",
+						"19",
+						"200",
+						"96"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"car"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultaCirculacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placa\": \"PDD9690\",\r\n    \"fecha\": \"2024-03-08T08:26\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/car/plate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"car",
+						"plate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultaCirculacionEC2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"placa\": \"IRM777\",\r\n    \"fecha\": \"2024-03-04T00:54\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.19.200.96:8080/api/v1/car/plate",
+					"protocol": "http",
+					"host": [
+						"3",
+						"19",
+						"200",
+						"96"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"car",
+						"plate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

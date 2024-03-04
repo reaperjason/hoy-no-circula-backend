@@ -27,7 +27,7 @@ public class CarController {
     @PostMapping("car")
     public ResponseEntity<?> create(@RequestBody Car newCar) {
         Map<String, Object> response = new HashMap<>();
-        // Validacion de datos nulos
+        // Validation
         if (newCar.getPlaca() == null || newCar.getColor() == null || newCar.getModelo() == null
                 || newCar.getChasis() == null) {
             response.put("codigo", "422");
@@ -53,6 +53,13 @@ public class CarController {
     @PostMapping("car/plate")
     public ResponseEntity<?> checkPlate(@RequestBody PlateCheckRequest plateCheckRequest) {
         Map<String, Object> response = new HashMap<>();
+        // validation
+        if (plateCheckRequest.getPlaca() == null || plateCheckRequest.getFecha() == null) {
+            response.put("codigo", "422");
+            response.put("mensaje", "Faltan campos para la consulta");
+            return new ResponseEntity<>(response, HttpStatus.UNPROCESSABLE_ENTITY);
+        }
+
         Car existingCar = carService.findByPlate(plateCheckRequest.getPlaca());
         if (existingCar != null) {
             // check for circulation restricted or allowed
@@ -65,9 +72,11 @@ public class CarController {
                 response.put("circula", false);
             }
             response.put("codigo", "200");
+            response.put("mensaje", "Consulta exitosa");
             return new ResponseEntity<>(response, HttpStatus.OK);
         } else {
             response.put("codigo", "404");
+            response.put("mensaje", "Carro no registrado");
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
     }

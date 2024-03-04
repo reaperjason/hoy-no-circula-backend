@@ -36,7 +36,19 @@ se puede encontrar en la carpeta extras.
 
 Los endpoints del API REST son:
 POST: http://3.19.200.96:8080/api/v1/car/plate -  Para consultar si un vehículo registrado puede circular en la fecha enviada.
+Ejemplo de json: 
+{
+    "placa": "IRM777",
+    "fecha": "2024-03-04T00:54"
+}
 POST: http://3.19.200.96:8080/api/v1/car - Para registrar nuevos vehículos
+Ejemplo de json (cambiar placa y chasis):
+{
+    "placa": "ADD2016",
+    "color": "Azul",
+    "modelo": "Chevrolet Corsa",
+    "chasis": "45212369745124562"
+}
 
 ## Instalacion
 

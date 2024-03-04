@@ -47,7 +47,7 @@ A continuación se detallan los pasos a seguir:
   1) Clonar el proyecto de forma local desde este repositorio, rama master
   2) Instalar las dependencias necesarias con mvn install
   3) Revisar los application.properties de desarrollo y produccion, deben estar apuntando a la base en la nube: jdbc:mysql://database-1.cxw4kiemum7t.us-east-2.rds.amazonaws.com:3306/db_hoy_no_circula?useSSL=false
-  4) Ejecutar con java el archivo "HoyNoCirculaApplication.java", puede ser con el comando mvn spring-boot:run o como su editor corra archivos java
+  4) Ejecutar el archivo "HoyNoCirculaApplication.java" desde ell editor, o desde consola compilarlo con: javac HoyNoCirculaApplication.java y despues: java HoyNoCirculaApplication
   5) OPCIONAL: Si se desea correr el archivo .jar generado se lo puede ubicar en /target/hoy-no-circula-0.0.1-SNAPSHOT.jar, usar el comando java -jar nombre_del_archivo.jar
 
 Si se desea conectarse a una base de datos Local:

@@ -45,7 +45,7 @@ o una base de datos.
 Sin embargo si se desea correr de forma local el proyecto es importante considerar los detalles técnicos para que el proyecto pueda correr correctamente.
 A continuación se detallan los pasos a seguir:
   1) Clonar el proyecto de forma local desde este repositorio, rama master
-  2) Instalar las dependencias necesarias con mvn install
+  2) Asegurarse que a version de jdk sea la 21, se puede ver con java -version, instalar las dependencias necesarias con mvn install
   3) Revisar los application.properties de desarrollo y produccion, deben estar apuntando a la base en la nube: jdbc:mysql://database-1.cxw4kiemum7t.us-east-2.rds.amazonaws.com:3306/db_hoy_no_circula?useSSL=false
   4) Ejecutar el archivo "HoyNoCirculaApplication.java" desde ell editor, o desde consola compilarlo con: javac HoyNoCirculaApplication.java y despues: java HoyNoCirculaApplication
   5) OPCIONAL: Si se desea correr el archivo .jar generado se lo puede ubicar en /target/hoy-no-circula-0.0.1-SNAPSHOT.jar, usar el comando java -jar nombre_del_archivo.jar
